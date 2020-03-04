@@ -2,12 +2,34 @@ spring:
   profiles:
     active: dev
 ---
+#开发环境配置项
 spring:
   profiles: dev
 server:
-  port: 6001
+  port: 6001  #端口号
+eureka:
+  instance:
+    hostname: eureka6001.com  #服务端实例名称
+  client:
+    register-with-eureka: false #服务注册开关
+    fetch-registry: false #服务发现开关
+    service-url:  #eureka客户端与服务端交互地址
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false #开发环境关闭自我保护机制
 ---
+#生产环境配置项
 spring:
   profiles: prod
 server:
-  port:6001
+  port: 6001  #端口号
+eureka:
+  instance:
+    hostname: eureka6001.com  #服务端实例名称
+  client:
+    register-with-eureka: false #服务注册开关
+    fetch-registry: false #服务发现开关
+    service-url:  #eureka客户端与服务端交互地址
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: true #生产环境开启自我保护机制
