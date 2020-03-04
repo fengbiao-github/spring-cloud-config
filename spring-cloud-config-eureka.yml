@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  profiles: dev
+server:
+  port: 6001
+---
+spring:
+  profiles: prod
+server:
+  port:6001
