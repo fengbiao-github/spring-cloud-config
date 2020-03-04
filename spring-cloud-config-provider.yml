@@ -1,0 +1,73 @@
+spring:
+  profiles:
+    active: dev
+---
+#开发环境
+server:
+  port: 8001 #端口号
+spring:
+  application:
+       #应用名 
+    name: provider
+    #配置数据源
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud_db1?serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+  profiles: dev
+#配置mybatis
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.example.demo.model
+#日志
+logging:
+  level:
+    com.example.demo: debug
+    org.springframework: info
+#eureka客户端配置
+eureka:
+  client:
+    register-with-eureka: true  #服务注册开关
+    fetch-registry: true  #服务发现开关
+    service-url:
+      defaultZone: http://eureka6001.com:6001/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${server.port}-dev  #指定实例id
+    prefer-ip-address: true #访问路径显示ip
+---
+#生产环境
+server:
+  port: 8001  #端口号
+spring:
+  application:
+       #应用名 
+    name: provider
+    #配置数据源
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud_db2?serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+  profiles: prod
+#配置mybatis
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.example.demo.model
+#日志
+logging:
+  level:
+    com.example.demo: debug
+    org.springframework: info
+#eureka客户端配置
+eureka:
+  client:
+    register-with-eureka: true  #服务注册开关
+    fetch-registry: true  #服务发现开关
+    service-url:
+      defaultZone: http://eureka6001.com:6001/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${server.port}-prod  #指定实例id
+    prefer-ip-address: true #访问路径显示ip
