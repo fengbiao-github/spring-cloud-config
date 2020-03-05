@@ -8,6 +8,16 @@ spring:
   profiles: dev
   application:
     name: spring-cloud-config-dev
+#eureka客户端配置
+eureka:
+  client:
+    register-with-eureka: true  #服务注册开关
+    fetch-registry: true  #服务发现开关
+    service-url:
+      defaultZone: http://eureka6001.com:6001/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${server.port}-dev  #指定实例id
+    prefer-ip-address: true #访问路径显示ip
 ---
 server:
   port: 4002
