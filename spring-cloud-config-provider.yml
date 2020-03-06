@@ -13,7 +13,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource   #配置当前要使用的数据源的操作类型那个
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springcloud_db2?serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/springcloud_db1?serverTimezone=GMT%2B8
     username: root
     password: 123456
     filters: stat,wall,logback     #druid监控配置
