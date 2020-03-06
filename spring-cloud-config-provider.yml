@@ -34,11 +34,11 @@ eureka:
     service-url:
       defaultZone: http://eureka6001.com:6001/eureka/
   instance:
-    instance-id: ${spring.application.name}:${server.port}-dev1  #指定实例id
+    instance-id: ${spring.application.name}:${server.port}-dev2  #指定实例id
     prefer-ip-address: true #访问路径显示ip
 #配置emp.name
 emp:
-  name: zs
+  name: ls
 ---
 #生产环境
 server:
