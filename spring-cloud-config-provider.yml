@@ -38,7 +38,7 @@ eureka:
     prefer-ip-address: true #访问路径显示ip
 #配置emp.name
 emp:
-  name: ls
+  name: ww
 ---
 #生产环境
 server:
